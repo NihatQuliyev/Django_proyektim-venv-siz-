@@ -1,0 +1,9 @@
+<h1>{{ question.sual_text }}</h1>
+
+<ul>
+{% for cavab57 in question.cavab_set.all %}
+    <li>{{ cavab57.cavab_text }} -- {{ cavab57.votes }} vote{{ cavab57.votes|pluralize }}</li>
+{% endfor %}
+</ul>
+
+<a href="{% url 'sorgu:etrafli' question.id %}">Vote again?</a>

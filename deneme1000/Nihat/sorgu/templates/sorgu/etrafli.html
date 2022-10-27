@@ -1,0 +1,12 @@
+<form action="{% url 'sorgu:vote' question.id %}" method="post">
+{% csrf_token %}
+<fieldset>
+    <legend><h1>{{ question.sual_text }}</h1></legend>
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    {% for cavab57 in question.cavab_set.all %}
+        <input type="radio" name="cavab57" id="cavab57{{ forloop.counter }}" value="{{ cavab57.id }}">
+        <label for="cavab57{{ forloop.counter }}">{{ cavab57.cavab_text }}</label><br>
+    {% endfor %}
+</fieldset>
+<input type="submit" value="Vote">
+</form>
